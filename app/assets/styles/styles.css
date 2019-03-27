@@ -15,3 +15,5 @@ Version: 1.0
 @import "modules/_headline.css";
 @import "modules/_row.css";
 @import "modules/_generic-content-container.css";
+@import "modules/_section-title.css";
+@import "modules/_featured-item.css";
