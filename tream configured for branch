@@ -1,0 +1,318 @@
+[33mcommit 764e2864400f804c79c61d0e9f2e60bbc3c270ee[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mtestimonials[m[33m, [m[1;32mmaster[m[33m)[m
+Author: dheckel77 <dheckel77@gmail.com>
+Date:   Thu Apr 18 10:50:25 2019 -0400
+
+    Completed Testimonials Section
+
+[1mdiff --git a/app/assets/styles/base/_mixins.css b/app/assets/styles/base/_mixins.css[m
+[1mindex 5c10d2e..5579cbf 100644[m
+[1m--- a/app/assets/styles/base/_mixins.css[m
+[1m+++ b/app/assets/styles/base/_mixins.css[m
+[36m@@ -11,7 +11,7 @@[m
+ }[m
+ [m
+ @define-mixin atLarge {[m
+[31m-	@media (min-width: 1200px) {[m
+[32m+[m	[32m@media (min-width: 1010px) {[m
+ 		@mixin-content;[m
+ 	}[m
+ }[m
+[1mdiff --git a/app/assets/styles/modules/_page-section.css b/app/assets/styles/modules/_page-section.css[m
+[1mindex 40b88fc..2b5cd92 100644[m
+[1m--- a/app/assets/styles/modules/_page-section.css[m
+[1m+++ b/app/assets/styles/modules/_page-section.css[m
+[36m@@ -13,6 +13,14 @@[m
+ 		}[m
+ 	}[m
+ [m
+[32m+[m	[32m&--no-b-padding-until-large {[m
+[32m+[m		[32mpadding-bottom: 0;[m
+[32m+[m
+[32m+[m		[32m@mixin atLarge {[m
+[32m+[m			[32mpadding-bottom: 4.5rem;[m
+[32m+[m		[32m}[m
+[32m+[m	[32m}[m
+[32m+[m
+ 	&--blue {[m
+ 		background-color: $mainBlue;[m
+ 		color: #fff;[m
+[36m@@ -21,7 +29,7 @@[m
+ 	&--testimonials {[m
+ 		background-color: #e0e6ef;[m
+ [m
+[31m-		@mixin atMedium {[m
+[32m+[m		[32m@mixin atLarge {[m
+ 			background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;[m
+ 			background-size: cover;[m
+ 		}[m
+[1mdiff --git a/app/assets/styles/modules/_row.css b/app/assets/styles/modules/_row.css[m
+[1mindex e35dd55..158cb81 100644[m
+[1m--- a/app/assets/styles/modules/_row.css[m
+[1m+++ b/app/assets/styles/modules/_row.css[m
+[36m@@ -64,6 +64,36 @@[m
+ 		}[m
+ 	}[m
+ [m
+[32m+[m	[32m@mixin atLarge {[m
+[32m+[m
+[32m+[m		[32m&__b-margin-until-large {[m
+[32m+[m			[32mmargin-bottom: 0;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m&__large-4 {[m
+[32m+[m			[32mfloat: left;[m
+[32m+[m			[32mwidth: 33.33%;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m&__large-4--larger {[m
+[32m+[m			[32mwidth: 37%;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m&__large-6 {[m
+[32m+[m			[32mfloat: left;[m
+[32m+[m			[32mwidth: 50%;[m
+[32m+[m		[32m}[m
+[32m+[m[41m	[m
+[32m+[m		[32m&__large-8 {[m
+[32m+[m			[32mfloat: left;[m
+[32m+[m			[32mwidth: 66.66%;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m&__large-8--smaller {[m
+[32m+[m			[32mwidth: 63%;[m
+[32m+[m		[32m}[m
+[32m+[m	[32m}[m
+[32m+[m
+ 	/* Begin Equal Height Rules */[m
+ 	&--equal-height-at-medium {[m
+ 		@mixin atMedium {[m
+[36m@@ -75,4 +105,15 @@[m
+ 			display: flex;[m
+ 		}[m
+ 	}[m
+[32m+[m
+[32m+[m	[32m&--equal-height-at-Large {[m
+[32m+[m		[32m@mixin atLarge {[m
+[32m+[m			[32mdisplay: flex;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m& > div {[m
+[32m+[m			[32mfloat: none;[m
+[32m+[m			[32mdisplay: flex;[m
+[32m+[m		[32m}[m
+[32m+[m	[32m}[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/app/assets/styles/modules/_testimonial.css b/app/assets/styles/modules/_testimonial.css[m
+[1mindex e9530d3..e22d729 100644[m
+[1m--- a/app/assets/styles/modules/_testimonial.css[m
+[1m+++ b/app/assets/styles/modules/_testimonial.css[m
+[36m@@ -3,9 +3,9 @@[m
+ 	padding: 0px 18px 1px 18px;[m
+ 	margin-bottom: 98px;[m
+ [m
+[31m-	@mixin atMedium {[m
+[32m+[m	[32m@mixin atLarge {[m
+ 		margin-bottom: 0;[m
+[31m-		padding: 80px 1.8125rem 1px 1.8125rem;[m
+[32m+[m		[32mpadding: 0px 1.8125rem 1px 1.8125rem;[m
+ 	}[m
+ [m
+ 	&--last {[m
+[1mdiff --git a/app/assets/styles/modules/_wrapper.css b/app/assets/styles/modules/_wrapper.css[m
+[1mindex 4c06e0c..530f4a1 100644[m
+[1m--- a/app/assets/styles/modules/_wrapper.css[m
+[1m+++ b/app/assets/styles/modules/_wrapper.css[m
+[36m@@ -20,6 +20,15 @@[m
+ 		}[m
+ 	}[m
+ [m
+[32m+[m	[32m&--no-padding-until-Large {[m
+[32m+[m		[32mpadding-left: 0;[m
+[32m+[m		[32mpadding-right: 0;[m
+[32m+[m
+[32m+[m		[32m@mixin atLarge {[m
+[32m+[m			[32mpadding-left: 18px;[m
+[32m+[m			[32mpadding-right: 18px;[m
+[32m+[m		[32m}[m
+[32m+[m	[32m}[m
+ 	.wrapper {[m
+ 		padding-left: 0;[m
+ 		padding-right: 0;[m
+[1mdiff --git a/app/index.html b/app/index.html[m
+[1mindex 87f6549..4498372 100644[m
+[1m--- a/app/index.html[m
+[1m+++ b/app/index.html[m
+[36m@@ -109,16 +109,16 @@[m
+     </div>[m
+   </div>[m
+ [m
+[31m-  <div id="testimonials" class="page-section page-section--no-b-padding-until-medium page-section--testimonials">[m
+[31m-    <div class="wrapper wrapper--no-padding-until-medium">[m
+[32m+[m[32m  <div id="testimonials" class="page-section page-section--no-b-padding-until-large page-section--testimonials">[m
+[32m+[m[32m    <div class="wrapper wrapper--no-padding-until-large">[m
+       [m
+       <h2 class="section-title section-title--blue"><img class="section-title__icon" src="assets/images/icons/comment.svg">Real <strong>Testimonials</strong></h2>[m
+ [m
+[31m-      <div class="row row--gutters row--equal-height-at-medium row--gutters-small row--t-padding generic-content-container">[m
+[31m-        <div class="row__medium-4">[m
+[32m+[m[32m      <div class="row row--gutters row--equal-height-at-large row--gutters-small row--t-padding generic-content-container">[m
+[32m+[m[32m        <div class="row__large-4">[m
+           <div class="testimonial">[m
+             <div class="testimonial__photo">[m
+[31m-              <img src="assets/images/testimonial-jane.jpg">[m
+[32m+[m[32m              <img sizes="160px" srcset="assets/images/testimonial-jane.jpg 160w, assets/images/testimonial-jane-hi-dpi.jpg 320w" alt="Jane Doe">[m
+             </div>[m
+             <h3 class="testimonial__title">Jane Doe</h3>[m
+             <h4 class="testimonial__subtitle">9 Time Escaper</h4>[m
+[36m@@ -126,10 +126,10 @@[m
+           </div>[m
+         </div>[m
+         [m
+[31m-        <div class="row__medium-4">[m
+[32m+[m[32m        <div class="row__large-4">[m
+           <div class="testimonial">[m
+             <div class="testimonial__photo">[m
+[31m-              <img src="assets/images/testimonial-john.jpg">[m
+[32m+[m[32m              <img sizes="160px" srcset="assets/images/testimonial-john.jpg 160w, assets/images/testimonial-john-hi-dpi.jpg 320w" alt="John Smith">[m
+             </div>[m
+             <h3 class=testimonial__title>John Smith</h3>[m
+             <h4 class=testimonial__subtitle>4 Time Escaper</h4>[m
+[36m@@ -137,10 +137,10 @@[m
+           </div>[m
+         </div>[m
+           [m
+[31m-        <div class="row__medium-4">[m
+[32m+[m[32m        <div class="row__large-4">[m
+           <div class="testimonial testimonial--last">[m
+             <div class="testimonial__photo">[m
+[31m-              <img src="assets/images/testimonial-cat.jpg">[m
+[32m+[m[32m              <img sizes="160px" srcset="assets/images/testimonial-cat.jpg 160x, assets/images/testimonial-cat-hi-dpi.jpg 320w" alt="Cat McKitty">[m
+             </div>[m
+             <h3 class=testimonial__title>Cat McKitty</h3>[m
+             <h4 class=testimonial__subtitle>6 Time Escaper</h4>[m
+[1mdiff --git a/app/temp/styles/styles.css b/app/temp/styles/styles.css[m
+[1mindex 4eab141..bec5ff4 100644[m
+[1m--- a/app/temp/styles/styles.css[m
+[1m+++ b/app/temp/styles/styles.css[m
+[36m@@ -592,6 +592,19 @@[m [ma {[m
+ 	}[m
+ 	}[m
+ [m
+[32m+[m[32m.wrapper--no-padding-until-Large {[m
+[32m+[m		[32mpadding-left: 0;[m
+[32m+[m		[32mpadding-right: 0;[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m[32m@media (min-width: 1010px) {[m
+[32m+[m
+[32m+[m[32m.wrapper--no-padding-until-Large {[m
+[32m+[m			[32mpadding-left: 18px;[m
+[32m+[m			[32mpadding-right: 18px[m
+[32m+[m	[32m}[m
+[32m+[m	[32m}[m
+[32m+[m
+ .wrapper .wrapper {[m
+ 		padding-left: 0;[m
+ 		padding-right: 0;[m
+[36m@@ -632,6 +645,17 @@[m [ma {[m
+ 	}[m
+ 	}[m
+ [m
+[32m+[m[32m.page-section--no-b-padding-until-large {[m
+[32m+[m		[32mpadding-bottom: 0;[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m[32m@media (min-width: 1010px) {[m
+[32m+[m
+[32m+[m[32m.page-section--no-b-padding-until-large {[m
+[32m+[m			[32mpadding-bottom: 4.5rem[m
+[32m+[m	[32m}[m
+[32m+[m	[32m}[m
+[32m+[m
+ .page-section--blue {[m
+ 		background-color: #2f5572;[m
+ 		color: #fff;[m
+[36m@@ -641,7 +665,7 @@[m [ma {[m
+ 		background-color: #e0e6ef;[m
+ 	}[m
+ [m
+[31m-@media (min-width: 800px) {[m
+[32m+[m[32m@media (min-width: 1010px) {[m
+ [m
+ .page-section--testimonials {[m
+ 			background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;[m
+[36m@@ -775,6 +799,36 @@[m [ma {[m
+ 		}[m
+ 	}[m
+ [m
+[32m+[m[32m@media (min-width: 1010px) {[m
+[32m+[m
+[32m+[m		[32m.row__b-margin-until-large {[m
+[32m+[m			[32mmargin-bottom: 0;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m.row__large-4 {[m
+[32m+[m			[32mfloat: left;[m
+[32m+[m			[32mwidth: 33.33%;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m.row__large-4--larger {[m
+[32m+[m			[32mwidth: 37%;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m.row__large-6 {[m
+[32m+[m			[32mfloat: left;[m
+[32m+[m			[32mwidth: 50%;[m
+[32m+[m		[32m}[m
+[32m+[m[41m	[m
+[32m+[m		[32m.row__large-8 {[m
+[32m+[m			[32mfloat: left;[m
+[32m+[m			[32mwidth: 66.66%;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m.row__large-8--smaller {[m
+[32m+[m			[32mwidth: 63%;[m
+[32m+[m		[32m}[m
+[32m+[m	[32m}[m
+[32m+[m
+ /* Begin Equal Height Rules */[m
+ [m
+ @media (min-width: 800px) {[m
+[36m@@ -793,6 +847,22 @@[m [ma {[m
+ 			display: flex;[m
+ 		}[m
+ [m
+[32m+[m[32m@media (min-width: 1010px) {[m
+[32m+[m
+[32m+[m[32m.row--equal-height-at-Large {[m
+[32m+[m			[32mdisplay: -webkit-box;[m
+[32m+[m			[32mdisplay: -ms-flexbox;[m
+[32m+[m			[32mdisplay: flex[m
+[32m+[m	[32m}[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m[32m.row--equal-height-at-Large > div {[m
+[32m+[m			[32mfloat: none;[m
+[32m+[m			[32mdisplay: -webkit-box;[m
+[32m+[m			[32mdisplay: -ms-flexbox;[m
+[32m+[m			[32mdisplay: flex;[m
+[32m+[m		[32m}[m
+[32m+[m
+ .generic-content-container p {[m
+ 		font-weight: 300;[m
+ 		line-height: 1.65;[m
+[36m@@ -898,11 +968,11 @@[m [ma {[m
+ 	margin-bottom: 98px;[m
+ }[m
+ [m
+[31m-@media (min-width: 800px) {[m
+[32m+[m[32m@media (min-width: 1010px) {[m
+ [m
+ .testimonial {[m
+ 		margin-bottom: 0;[m
+[31m-		padding: 80px 1.8125rem 1px 1.8125rem[m
+[32m+[m		[32mpadding: 0px 1.8125rem 1px 1.8125rem[m
+ }[m
+ 	}[m
+ [m
