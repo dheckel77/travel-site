@@ -9,9 +9,9 @@ module.exports = {
 	module: {
 		loaders: [
 			{
-				loader: 'bable-loader',
+				loader: 'babel-loader',
 				query: {
-					presets: ['es215']
+					presets: ['es2015']
 				},
 				test: /\.js$/,
 				exclude: /node_modules/

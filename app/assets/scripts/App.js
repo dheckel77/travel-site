@@ -1,19 +1,18 @@
-var $ = require('jquery');
-var Person = require('./modules/Person');
+import MobileMenu from './modules/MobileMenu';
+// import Person from './modules/Person';
 
-class Adult extends Person {
-	payTaxes() {
-		console.log(this.name + " now owes $0.");
-	}
-}
+// class Adult extends Person {
+// 	payTaxes() {
+// 		console.log(this.name + " now owes $0 in taxes.");
+// 	}
+// }
 
-alert("TEsting 123!");
+let mobileMenu = new MobileMenu();
+// let person = new Person();
 
-var john = new Person("John Doe", "blue");
-john.greet();
+// let john = new Person("John Doe", "blue");
+// let jane = new Adult("Jane Smith", "orange");
 
-var jane = new Person("Jane Smith","green");
-jane.greet();
-jane.payTaxes();
-
-$("h1").remove();
+// john.greet();
+// jane.greet();
+// jane.payTaxes();
