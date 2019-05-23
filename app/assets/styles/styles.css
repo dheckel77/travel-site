@@ -16,9 +16,10 @@ Version: 1.0
 @import "modules/_row.css";
 @import "modules/_generic-content-container.css";
 @import "modules/_section-title.css";
-@import "modules/_featured-item.css";
+@import "modules/_feature-item.css";
 @import "modules/_testimonial.css";
 @import "modules/_sprite.css";
 @import "modules/_site-footer.css";
 @import "modules/_site-header.css";
 @import "modules/_primary-nav.css";
+@import "modules/_reveal-item.css";

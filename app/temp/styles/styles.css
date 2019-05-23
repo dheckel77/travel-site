@@ -928,32 +928,32 @@ a {
 	}
 	}
 
-.featured-item {
+.feature-item {
 	position: relative;
 	padding-bottom: 2.5rem;
 }
 
 @media (min-width: 530px) {
 
-.featured-item {
+.feature-item {
 		padding-left: 80px
 }
 	}
 
-.featured-item__icon {
+.feature-item__icon {
 		display: block;
 		margin: 0 auto;
 	}
 
 @media (min-width: 530px) {
 
-.featured-item__icon {
+.feature-item__icon {
 			position: absolute;
 			left: 0
 	}
 	}
 
-.featured-item__title {
+.feature-item__title {
 		font-size: 1.6rem;
 		font-weight: 300;
 		margin-top: .7em;
@@ -963,7 +963,7 @@ a {
 
 @media (min-width: 530px) {
 
-.featured-item__title {
+.feature-item__title {
 			text-align: left;
 			margin-top: 1em;
 			font-size: 1.875rem
@@ -1349,4 +1349,18 @@ Instead edit gulp/templates/sprite */
 			background-color: transparent
 
 	}
+	}
+
+.reveal-item {
+	opacity: 0;
+	-webkit-transition: all 1.5s ease-out;
+	transition: all 1.5s ease-out;
+	-webkit-transform: scale(2.15);
+	        transform: scale(2.15);
+}
+
+.reveal-item--is-visible {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		        transform: scale(1);
 	}
